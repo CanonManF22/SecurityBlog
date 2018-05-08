@@ -1,3 +1,32 @@
+<?php
+
+$host = "localhost"
+$user = "root"
+$password ="";
+$db="database"
+
+mysql_connect($host, @user, $password);
+mysqul_select_db($db
+
+if(isset(['username'])){
+	$uname=$_POST['username'];
+	$password = $_POST['password'];
+
+	$sql="select * from loginform where user='".$uname."' AND password = '".$password."' limit 1";
+
+	$result = mysql_query($sql);
+
+	if(mysql_num_rows($result)==1){
+			echo " You have successfully logged in! ";
+			exit();
+	}
+	else{
+			echo " You have entered an incorrect username or password";
+			exit();
+	}
+}
+?>
+
 <!DOCTYPE | !DOCTYPE html>
 <html>
 	<head>
@@ -7,12 +36,12 @@
 <body>
 		<div class = "container">
 		<h1> Security Blog </h1>
-			<form>
+			<form method = "POST" action = '#'>
 				<div class = "form-input">
-					<input type = "text" name = "text" placeholder = "Enter your Username"/>
+					<input type = "text" name = "username" placeholder = "Enter your Username"/>
 				</div>
 				<div class = "form-input">
-					<input type = "text" name = "text" placeholder = "Enter your password"/>
+					<input type = "text" name = "password" placeholder = "Enter your password"/>
 				</div>
 				<input type = "submit" type = "submit" value = "LOGIN" class = "btn-login"/>
 			</form>
