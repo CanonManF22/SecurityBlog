@@ -24,6 +24,8 @@ if (isset($_POST['login'])) {
 	$result = mysqli_query($con, $sql);
 
 	if(mysqli_num_rows($result)==1){
+			header("Location: home.php"); /* Redirect browser */
+		exit();
 			echo " You have successfully logged in! ";
 			exit();
 	}
@@ -49,6 +51,8 @@ if (isset($_POST['login'])) {
 
 	if($con->query($sql)){
 		echo 'New user has been registered';
+		header("localhost/blog2/home"); /* Redirect browser */
+		exit();
 	}
 	else{
 		echo $username;
