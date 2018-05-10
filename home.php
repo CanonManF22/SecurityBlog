@@ -1,22 +1,36 @@
+<? php
+	session_start();
+	include_once("db.php");
+?>
+
 <!DOCTYPE | !DOCTYPE html>
 <html>
-	<head>
-		<title>HOME PAGE </title>
-		<link rel = "stylesheet" a href ="css/style.css">
-		<link rel="stylesheet" a href="css\font-awesome.min.css">
+<head>
+	<title>Blog Home</title>
 </head>
-<body>
-		<div class = "container">
-		<h1> SHOME PAASDSA </h1>
-			<form method = "POST" action = 'connect.php'>
-				<div class = "form-input">
-					<input type = "text" name = "username" placeholder = "Enter a Username"/>
-				</div>
-				<div class = "form-input">
-					<input type = "text" name = "password" placeholder = "Enter a password"/>
-				</div>
-				<input type = "submit" type = "submit" value = "DONE" class = "btn-login"/>
-			</form>
-		</div>
-</body>
+	<body>
+			<?php
+				$sql = "SELECT * FROM posts ORDER BY id DESC";
+
+				$res = msqli_query($db, $sql) or die (mysqli_error());
+
+				$posts = "";
+
+				if(myqli_num_rows($res)>0) {
+					while($row = mysqli_fetch_assoc($res)){
+						$id = $row['id'];
+						$title = $row['title'];
+						$content = $row['content'];
+						$date = $row['date'];
+
+						$admin = "";
+
+						$output = $content;
+
+						$posts .= "<div><h2><a href ='display_post.php?pid=$id'</h2></div>"
+					}
+				}
+			?>
+	</body>
+
 </html>
