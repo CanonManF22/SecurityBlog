@@ -30,19 +30,14 @@ if (isset($_POST['login'])) {
 			echo " You have entered an incorrect username or password";
 			exit();
 	}
-
 	}
-
-
  }
-
 
   else {
   
 	$username = filter_input(INPUT_POST,'username');
 	$password = filter_input(INPUT_POST,'password');
 	
-
 	$sql= "INSERT INTO loginform (User, Password)
 	values ('$username', '$password')";
 
@@ -57,9 +52,6 @@ if (isset($_POST['login'])) {
 
 		echo ' there has been an error. #RIP';
 	}
-
-	
 }
-
 ?>
 
