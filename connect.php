@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $password ="";
-$db="database";
+$db="blog";
 
 $con= new mysqli($host, $user, $password);
 
@@ -43,7 +43,7 @@ if (isset($_POST['login'])) {
 
 	if($con->query($sql)){
 		echo 'New user has been registered';
-		header("localhost/blog2/home"); /* Redirect browser */
+		header("Location: home.php"); /* Redirect browser */
 		exit();
 	}
 	else{

@@ -5,27 +5,50 @@ $user = "root";
 $password ="";
 $db="blog";
 $con= new mysqli($host, $user, $password);
+mysqli_select_db($con,$db);
 session_start();
 //include_once("db.php");
 
 if(isset($_POST['post'])) {
-    $title = strip_tags($_POST['title']);
-    $content = strip_tags($_POST['content']);
+   // $title = strip_tags($_POST['title']);
+    //$content = strip_tags($_POST['content']);
+    //$title = $_POST['title'];
+    //$content = $_POST['content'];
 
     //$title = mysqli_real_escape_string($db, $title);
     //$content = mysqli_real_escape_string($db, $content);
 
     $date = date('l jS \of F Y h:i:s A');
 
-    $sql = "INSERT into posts (title, content, date) VALUES ('$title', '$content', '$date')";
+    $title = filter_input(INPUT_POST,'title');
+	$content = filter_input(INPUT_POST,'content');
+    
+    //$sql= "INSERT INTO loginform (User, Password)
+	//values ('uh', 'oh')";
+    $sql = "INSERT INTO posts (title, content, date) VALUES ($title,$content,$date)";
 
     if($title == ""|| $content == ""){
-        echo "Please complete your post!";
+        echo "Please complete your post!";  
+        
         return;
     }
-    mysqli_query($db, $sql);
-
-    header("Location: home.php");
+    else if(mysqli_query($con, $sql)){
+        echo'mysqli worked';
+        echo $title;
+        echo $content;
+    }
+    else if($con->query($sql)){
+        echo 'con query worked';
+        echo $title;
+        echo $content;
+        echo $sql;
+    }
+    else{
+        echo 'rip bro';
+    }
+    
+   // mysqli_query($db, $sql);
+    //header("Location: home.php");
 }
 
 ?>
