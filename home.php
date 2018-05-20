@@ -1,10 +1,11 @@
 <?php
+session_start();
 $host = "localhost";
 $user = "root";
 $password ="";
 $db="blog";
 $con= new mysqli($host, $user, $password);
-session_start();
+
 
 mysqli_select_db($con,$db);
 

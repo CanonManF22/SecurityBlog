@@ -1,11 +1,12 @@
 <?php
+session_start();
 $host = "localhost";
 $user = "root";
 $password ="";
 $db="blog";
 $con= new mysqli($host, $user, $password);
 mysqli_select_db($con,$db);
-session_start();
+
 //include_once("db.php");
 
 if(isset($_POST['post'])) {

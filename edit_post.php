@@ -1,11 +1,12 @@
 <?php
+session_start();
 $host = "localhost";
 $user = "root";
 $password ="";
 $db="blog";
 $con= new mysqli($host, $user, $password);
 mysqli_select_db($con,$db);
-session_start();
+
 
 /*if(!isset($_SESSION['username'])) {
     header("Location: login.php");
@@ -29,7 +30,8 @@ if(isset($_POST['post'])) {
      //values ('uh', 'oh')";
      
     // $sql = "INSERT INTO posts (title, content, date) VALUES ($title,$content,$date)";
-    $sql = "INSERT INTO posts SET title= '$title', content = '$content', date = '$date'";
+    //$sql = "INSERT INTO posts SET title= '$title', content = '$content', date = '$date'";
+    $sql = "UPDATE posts SET title= '$title', content = '$content', date = '$date'";
      if($title == ""|| $content == ""){
          echo "Please complete your post!";  
          
@@ -73,7 +75,7 @@ if(isset($_POST['post'])) {
   }
 
      $pid = $_GET['pid'];
-    echo $pid;
+    echo 'You are making edits to this post!';
 
     //$sql = "UPDATE posts SET title= '$title', content = '$content', date = '$date' WHERE id=$pid";
 
@@ -89,7 +91,7 @@ if(isset($_POST['post'])) {
 
            echo  "<form action= 'edit_post.php?pid=$pid' method = 'post' enctype = 'multipart/form-data'>";
             echo "<input placeholder = 'Title' name = 'title' value='$title'  type = 'text' autofocus size = '48'><br /><br />";
-           echo "<textarea placeholder = 'Content' name = 'content' rows = '20' cols = '50'>$content</textarea><br />;";
+           echo "<textarea placeholder = 'Content' name = 'content' rows = '20' cols = '50'>$content</textarea><br />";
 
         }
     }

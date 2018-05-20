@@ -1,40 +1,12 @@
 <?php
-
-$host = "localhost";
-$user = "root";
-$password ="";
-$db="blog";
-$con= new mysqli($host, $user, $password);
-
-mysqli_select_db($con,$db);
 session_start();
-
-/*if(!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    return;
-}*/
-
-if(!isset($_GET['[pid]'])) {
-    echo 'worked1';
-    header("Location: home.php");
-} else{
-    $pid = $GET['pid'];
-    echo $pid;
-    $sql = "DELETE FROM posts WHERE id=$pid";
-    mysqli_query($db, $sql);
-    header("Location: home.php");
-}
-//?>
-
-
-<?php
 $host = "localhost";
 $user = "root";
 $password ="";
 $db="blog";
 $con= new mysqli($host, $user, $password);
 mysqli_select_db($con,$db);
-session_start();
+
 
 /*if(!isset($_SESSION['username'])) {
     header("Location: login.php");
@@ -102,30 +74,10 @@ if(isset($_POST['post'])) {
   }
 
      $pid = $_GET['pid'];
-    echo $pid;
-
-    //$sql = "UPDATE posts SET title= '$title', content = '$content', date = '$date' WHERE id=$pid";
-
-    $sql_get = "SELECT * FROM posts WHERE id = $pid LIMIT 1";
-    $res = mysqli_query($con, $sql_get);
-
-    
-
-    if(mysqli_num_rows($res)>0){
-        while($row = mysqli_fetch_assoc($res)) {
-            $title = $row['title'];
-            $content = $row['content'];
-
-           echo  "<form action= 'edit_post.php?pid=$pid' method = 'post' enctype = 'multipart/form-data'>";
-            echo "<input placeholder = 'Title' name = 'title' value='$title'  type = 'text' autofocus size = '48'><br /><br />";
-           echo "<textarea placeholder = 'Content' name = 'content' rows = '20' cols = '50'>$content</textarea><br />;";
-
-        }
-    }
-
+    echo 'You are making edits to this post!';
+    $sql = "DELETE FROM posts WHERE id=$pid";
+    //$sql_del = "SELECT * FROM posts WHERE id = $pid LIMIT 1";
+    $res = mysqli_query($con, $sql);
+    header("Location: home.php");
     ?>
-        
-        <input name = "post" type = "submit" value = "Update">
-    </form>
-</body>
-</html>
+      
