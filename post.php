@@ -1,5 +1,4 @@
 <?php
-
 $host = "localhost";
 $user = "root";
 $password ="";
@@ -14,7 +13,6 @@ if(isset($_POST['post'])) {
     //$content = strip_tags($_POST['content']);
     //$title = $_POST['title'];
     //$content = $_POST['content'];
-
     //$title = mysqli_real_escape_string($db, $title);
     //$content = mysqli_real_escape_string($db, $content);
 
@@ -24,9 +22,10 @@ if(isset($_POST['post'])) {
 	$content = filter_input(INPUT_POST,'content');
     
     //$sql= "INSERT INTO loginform (User, Password)
-	//values ('uh', 'oh')";
-    $sql = "INSERT INTO posts (title, content, date) VALUES ($title,$content,$date)";
-
+    //values ('uh', 'oh')";
+    
+   // $sql = "INSERT INTO posts (title, content, date) VALUES ($title,$content,$date)";
+   $sql = "INSERT INTO posts SET title= '$title', content = '$content', date = '$date'";
     if($title == ""|| $content == ""){
         echo "Please complete your post!";  
         
@@ -36,19 +35,18 @@ if(isset($_POST['post'])) {
         echo'mysqli worked';
         echo $title;
         echo $content;
+        header("Location: home.php");
     }
-    else if($con->query($sql)){
-        echo 'con query worked';
+   
+    else{
+        echo 'error updating making post';
         echo $title;
         echo $content;
-        echo $sql;
-    }
-    else{
-        echo 'rip bro';
+        echo $date;
     }
     
    // mysqli_query($db, $sql);
-    //header("Location: home.php");
+    header("Location: home.php");
 }
 
 ?>
