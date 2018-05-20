@@ -8,10 +8,10 @@ $con= new mysqli($host, $user, $password);
 mysqli_select_db($con,$db);
 
 
-/*if(!isset($_SESSION['username'])) {
+if(!isset($_SESSION['username'])) {
     header("Location: login.php");
     return;
-}*/
+}
 
 if(isset($_POST['post'])) {
     // $title = strip_tags($_POST['title']);

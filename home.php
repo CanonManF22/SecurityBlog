@@ -9,7 +9,7 @@ $con= new mysqli($host, $user, $password);
 
 mysqli_select_db($con,$db);
 
-	$sql="select * from posts ";
+	$sql="SELECT * FROM posts ORDER BY id DESC";
 	
 	$result = mysqli_query($con, $sql);
 	
@@ -40,8 +40,10 @@ mysqli_select_db($con,$db);
 						</h2>
 						<h3>$date</h3>
 						<p>$content</p>
-							$admin
-	 			 		</div>";
+							
+						  </div>"
+						  
+						  ;
 			
 		}
 			echo $posts;
@@ -49,9 +51,35 @@ mysqli_select_db($con,$db);
 	else{
 			echo "There are no posts to display!";
 	}
+
+	if(isset($_SESSION['admin'])&& $_SESSION['admin']==1){
+		echo "<a href = 'admin.php'>Admin</a> | <a href = 'index.php'>Logout</a>";
+	}
+	if(!isset($_SESSION['username'])){
+		header("Location: index.php");
+	
+	}
+	if(isset($_SESSION['username']) && $_SESSION['admin']==0){
+		echo "<a href = 'index.php'>Logout</a>";
+		
+	}
+
+	
 	
 ?>
+<<!DOCTYPE html>
+<html>
+<head>
 
+<body>
+<a href = "post.php">New Post</a>
+</body>
+<footer>
+  <p>Posted by: Hege Refsnes</p>
+  <p>Contact information: <a href="mailto:someone@example.com">
+  someone@example.com</a>.</p>
+</footer>
+</html>
 
 
 

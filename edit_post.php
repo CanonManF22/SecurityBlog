@@ -8,10 +8,10 @@ $con= new mysqli($host, $user, $password);
 mysqli_select_db($con,$db);
 
 
-/*if(!isset($_SESSION['username'])) {
-    header("Location: login.php");
+if(!isset($_SESSION['username'])) {
+    header("Location: index.php");
     return;
-}*/
+}
 
 if(isset($_POST['post'])) {
     // $title = strip_tags($_POST['title']);
@@ -31,8 +31,10 @@ if(isset($_POST['post'])) {
      
     // $sql = "INSERT INTO posts (title, content, date) VALUES ($title,$content,$date)";
     //$sql = "INSERT INTO posts SET title= '$title', content = '$content', date = '$date'";
-    $sql = "UPDATE posts SET title= '$title', content = '$content', date = '$date'";
+    $pid = $_GET['pid'];
+    $sql = "UPDATE posts SET title= '$title', content = '$content', date = '$date' WHERE id=$pid";
      if($title == ""|| $content == ""){
+         echo $pid;
          echo "Please complete your post!";  
          
          return;
@@ -41,7 +43,7 @@ if(isset($_POST['post'])) {
          echo'mysqli worked';
          echo $title;
          echo $content;
-         header("Location: home.php");
+        header("Location: home.php");
      }
     
      else{
@@ -52,7 +54,7 @@ if(isset($_POST['post'])) {
      }
      
     // mysqli_query($db, $sql);
-     header("Location: home.php");
+     //header("Location: home.php");
  }
 
 ?>
