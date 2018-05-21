@@ -19,9 +19,10 @@ if(isset($_POST['post'])) {
 
     $date = date('l jS \of F Y h:i:s A');
 
-    $title = filter_input(INPUT_POST,'title');
-	$content = filter_input(INPUT_POST,'content');
-    
+   // $title = filter_input(INPUT_POST,'title');
+	//$content = filter_input(INPUT_POST,'content');
+    $title = $_POST['title'];
+    $content = $_POST['content'];
     //$sql= "INSERT INTO loginform (User, Password)
     //values ('uh', 'oh')";
     
@@ -34,8 +35,6 @@ if(isset($_POST['post'])) {
     }
     else if(mysqli_query($con, $sql)){
         echo'mysqli worked';
-        echo $title;
-        echo $content;
         header("Location: home.php");
     }
    
@@ -47,7 +46,7 @@ if(isset($_POST['post'])) {
     }
     
    // mysqli_query($db, $sql);
-    header("Location: home.php");
+   // header("Location: home.php");
 }
 
 ?>
@@ -65,4 +64,16 @@ if(isset($_POST['post'])) {
         <input name = "post" type = "submit" value = "Post">
     </form>
 </body>
+</html>
+
+<html>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<footer>
+	<p>Privacy Statement:</p>
+  <p>Blog Created by Avi Banerjee - CS 166</p>
+  <p>Your information will only be used for maintaining this blog. No information will be shared elsewhere.</p>
+</footer>
 </html>

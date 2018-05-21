@@ -1,3 +1,17 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		Blog - Home
+	</title>
+	<h8>BLOG HOME PAGE</h8>
+</head>
+<body>
+	
+</body>
+</html>
+
 <?php
 session_start();
 $host = "localhost";
@@ -67,17 +81,17 @@ mysqli_select_db($con,$db);
 	
 	
 ?>
-<<!DOCTYPE html>
-<html>
-<head>
 
-<body>
-<a href = "post.php">New Post</a>
-</body>
+<html>
+<a href = 'post.php'> New Post</a>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
 <footer>
-  <p>Posted by: Hege Refsnes</p>
-  <p>Contact information: <a href="mailto:someone@example.com">
-  someone@example.com</a>.</p>
+	<p>Privacy Statement:</p>
+  <p>Blog Created by Avi Banerjee - CS 166</p>
+  <p>Your information will only be used for maintaining this blog. No information will be shared elsewhere.</p>
 </footer>
 </html>
 

@@ -1,3 +1,17 @@
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>
+		Blog - Home
+	</title>
+	<h8>BLOG HOME PAGE -admin priv</h8>
+</head>
+<body>
+	
+</body>
+</html>
+
 <?php
 session_start();
 $host = "localhost";
@@ -27,7 +41,9 @@ if(!isset($_SESSION['admin'])&& $_SESSION['admin']!=1) {
 			
 			$title = $row['title'];
             $content = $row['content'];
-			$date = $row['date'];
+            $date = $row['date'];
+            
+            
 
 			$admin = "<div>	<a href = 'del_post.php?pid=$id'>Delete</a>&nbsp;<a href = 'edit_post.php?pid=$id'>	Edit</a></div>";
 			
@@ -50,11 +66,23 @@ if(!isset($_SESSION['admin'])&& $_SESSION['admin']!=1) {
 
 <body>
     <br></br>
-    <br></br>
+	<a href = 'post.php'> New Post</a>
+	<br></br>
 <a href = 'index.php'> Logout</a>
 </body>
 </html>
 
+<html>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<footer>
+	<p>Privacy Statement:</p>
+  <p>Blog Created by Avi Banerjee - CS 166</p>
+  <p>Your information will only be used for maintaining this blog. No information will be shared elsewhere.</p>
+</footer>
+</html>
 
 
 

@@ -24,3 +24,16 @@
 		</div>
 </body>
 </html>
+
+
+<html>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<footer>
+	<p>Privacy Statement:</p>
+  <p>Blog Created by Avi Banerjee - CS 166</p>
+  <p>Your information will only be used for maintaining this blog. No information will be shared elsewhere.</p>
+</footer>
+</html>

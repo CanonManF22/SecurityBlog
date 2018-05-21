@@ -15,7 +15,7 @@ if (isset($_POST['login'])) {
 	$password = $_POST['password'];
 	$_SESSION["username"] = $uname;
 
-	$sql="select * from loginform where user='".$uname."' AND password = '".$password."' limit 1";
+	$sql="select * from loginform where user='".$uname."' AND password = '".$password."'";
 		
 	$result = mysqli_query($con, $sql);
 	$row = mysqli_fetch_array($result);
@@ -50,8 +50,10 @@ if (isset($_POST['login'])) {
 
   else {
   
-	$username = filter_input(INPUT_POST,'username');
-	$password = filter_input(INPUT_POST,'password');
+	//$username = filter_input(INPUT_POST,'username');
+	//$password = filter_input(INPUT_POST,'password');
+	$username = 'username';
+	$password = 'password';
 	
 	$sql= "INSERT INTO loginform (User, Password)
 	values ('$username', '$password')";
@@ -70,3 +72,14 @@ if (isset($_POST['login'])) {
 }
 ?>
 
+<html>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<footer>
+	<p>Privacy Statement:</p>
+  <p>Blog Created by Avi Banerjee - CS 166</p>
+  <p>Your information will only be used for maintaining this blog. No information will be shared elsewhere.</p>
+</footer>
+</html>
